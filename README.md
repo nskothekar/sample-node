@@ -1,6 +1,6 @@
 **# Solution**
 
-**### Problem Statement 1 **
+**### Problem Statement 1**
 
 **Requirements**
    1. Docker version 19.03.2, will work on older docker version that supports compose version 3 but haven't tested
@@ -19,4 +19,4 @@
 **### Problem statement 3**
 
    Solution in GIT Repo
-   Filename: *problem_statement_2.txt*
+   Filename: *problem_statement_3.txt*
