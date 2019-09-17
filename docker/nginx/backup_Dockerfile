@@ -1,0 +1,11 @@
+FROM nginx:alpine
+RUN rm /etc/nginx/conf.d/default.conf
+RUN echo "upstream my-app {" \
+         "server backend-node1:8080;" \
+         "server backend-node2:8081;" \
+         "}" \
+         "server {" \
+         "location / {" \
+         "proxy_pass http://my-app;" \
+         "}" \
+         "}" /etc/nginx/conf.d/default.conf

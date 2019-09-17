@@ -1,0 +1,49 @@
+version: '3'
+services:
+  backend-node1:
+    image: backend-node:${version}
+    ports:
+      - 8080:8080
+    environment: 
+      - MESSAGE=${message}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 60s
+      resources:
+        limits:
+          memory: 128M
+    logging:
+      options: 
+        max-size: 50m
+        max-file: 4
+
+  backend-node2:
+    image: backend-node:${version}
+    ports:
+      - 8081:8080
+    environment: 
+      - MESSAGE=${message}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 60s
+      resources:
+        limits:
+          memory: 128M
+    logging:
+      options: 
+        max-size: 50m
+        max-file: 4
+
+  loadbalancer:
+    image: lb:1
+    ports:
+      - '80:80'
+    depends_on: 
+      - backend-node1
+      - backend-node2
