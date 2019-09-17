@@ -1,7 +1,7 @@
 version: '3'
 services:
   backend-node1:
-    image: backend-node:${version}
+    image: backend-node:${BUILD_NUMBER}
     ports:
       - 3000:3000
     deploy:
@@ -19,7 +19,7 @@ services:
         max-file: 4
 
   backend-node2:
-    image: backend-node:${version}
+    image: backend-node:${BUILD_NUMBER}
     ports:
       - 3001:3000
     deploy:
