@@ -3,9 +3,7 @@ services:
   backend-node1:
     image: backend-node:${version}
     ports:
-      - 8080:8080
-    environment: 
-      - MESSAGE=${message}
+      - 3000:3000
     deploy:
       replicas: 1
       restart_policy:
@@ -23,9 +21,7 @@ services:
   backend-node2:
     image: backend-node:${version}
     ports:
-      - 8081:8080
-    environment: 
-      - MESSAGE=${message}
+      - 3001:3000
     deploy:
       replicas: 1
       restart_policy:
