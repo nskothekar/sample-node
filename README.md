@@ -6,7 +6,9 @@
 
 ..2. Jenkins users should be added into docker group or jenkins should be ran as root user
 
-..3. Active choice plugin should be installed
+..3. Swarm mode should be enabled. Run ```docker swarm init``` to enable swarm mode
+
+..4. Active choice plugin should be installed
 
 **### Problem statement 2**
 ..Solution in GIT Repo
