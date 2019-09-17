@@ -1,0 +1,31 @@
+# Problem Statement 2
+
+## Get Open file count
+- Command to find PID
+	ps -ef | grep -i weblogic
+
+- Check number of open files for given process
+	lsof -p <pid of weblogic> | wc -l
+
+
+## Debugging steps
+Root Cause: This when when JVM is unable to open any new file because of limit set by on linux server
+
+## Analysis
+- Switch to weblogic
+	su - weblogicRu
+
+- Check limit set on the server
+	ulimit -n
+
+## Solution
+- Analyse the opened file from output of "lsof -p <pid_of_weblogic>".
+- If a bug has resulted in opening large number of files, then fix the bug and redeploy the application.
+- if no bug is found, consider increasing the open file limit.
+
+
+## Increase open file limit for weblogicusr user
+- Open /etc/security/limits.conf
+- Add the below lines at the end;
+	weblogicusr soft nofile <number_of_file>
+	weblogicusr hard nofile <number_of_file>

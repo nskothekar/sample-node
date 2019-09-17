@@ -1,0 +1,22 @@
+## Problem Statement 3
+
+- First of all, we should give Developer the access to the production environment. 
+- Secondly, for production monitoring is must! We should have received an alert when the disk space usage crossed 80% 
+
+
+# Steps to recover disk space
+1. Run the below command
+    apt-get autoremove
+
+2. At times the above command does not run as "out of disk space" error occurs (current senario),
+   in that case if possible find something that can be deleted. 
+
+3. If you don't have anything to delete the purge linux headers which are older one
+    uname -r (DON'T remove this kernel)
+    apt-get purge linux-headers-x.x.x-x 
+
+4. You can also use dpkg command to remove old kernels
+    uname -r (DON'T remove this kernel)
+    dpkg --list 'linux-image-*'
+    apt-get purge linux-image-x.x.x-x-generic 
+
