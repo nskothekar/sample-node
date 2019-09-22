@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   backend-node1:
     image: backend-node:${BUILD_NUMBER}
@@ -10,6 +10,9 @@ services:
         condition: on-failure
         delay: 5s
         window: 60s
+      update_config:
+        delay: 5s
+        order: start-first
       resources:
         limits:
           memory: 128M
@@ -28,6 +31,9 @@ services:
         condition: on-failure
         delay: 5s
         window: 60s
+      update_config:
+        delay: 5s
+        order: start-first
       resources:
         limits:
           memory: 128M
